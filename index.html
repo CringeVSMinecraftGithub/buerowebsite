@@ -170,8 +170,54 @@
   <section class="section section-alt">
     <div class="container">
       <h2>Aktuelles aus Münster</h2>
+
       <div class="news">
-        <!-- News-Artikel hier wie vorher -->
+
+        <article class="news-item" 
+                 data-title="Neue Bewohnerparkregelungen geplant" 
+                 data-content="Die Stadt Münster plant neue Bewohnerparkzonen rund um die Hammer Straße. Ziel ist es, das Parken für Anwohner zu erleichtern und gleichzeitig Besucher gerecht zu verteilen. Die Regelungen betreffen mehrere Straßenabschnitte und sollen ab April 2026 umgesetzt werden.">
+          <time datetime="2026-02-17">17.02.2026</time>
+          <h3>Neue Bewohnerparkregelungen geplant</h3>
+          <p>Die Stadt plant neue Parkzonen...</p>
+        </article>
+
+        <article class="news-item" 
+                 data-title="Sanierung der Turnhalle verzögert sich" 
+                 data-content="Die Sanierung der Turnhalle am Ludwig-Erhard-Berufskolleg verzögert sich voraussichtlich bis April 2026. Grund sind Lieferengpässe beim Material und wetterbedingte Verzögerungen bei den Bauarbeiten. Der Sportunterricht wird bis dahin in alternativen Hallen durchgeführt.">
+          <time datetime="2026-01-29">29.01.2026</time>
+          <h3>Sanierung der Turnhalle verzögert sich</h3>
+          <p>Die Arbeiten am Ludwig-Erhard-Berufskolleg verlängern sich...</p>
+        </article>
+
+        <article class="news-item" 
+                 data-title="Schulen wegen Glatteis geschlossen" 
+                 data-content="Aufgrund von starkem Glatteis bleiben alle Schulen in Münster am 21.01.2026 geschlossen. Die Stadt bietet eine Notbetreuung für Schülerinnen und Schüler an, deren Eltern keine andere Betreuungsmöglichkeit haben. Der öffentliche Nahverkehr wird angepasst, bitte prüfen Sie die aktuellen Fahrpläne.">
+          <time datetime="2026-01-21">21.01.2026</time>
+          <h3>Schulen wegen Glatteis geschlossen</h3>
+          <p>Präsenzunterricht fällt aus...</p>
+        </article>
+
+        <details class="news-archive">
+          <summary>Ältere Meldungen anzeigen</summary>
+
+          <article class="news-item" 
+                   data-title="Neue Kulturstätte eröffnet" 
+                   data-content="Der Meancult Gallery Projektraum öffnet in der Klosterstraße. Die Einrichtung bietet lokalen Künstlern eine Plattform für Ausstellungen und Workshops. Besucher können regelmäßig wechselnde Ausstellungen besichtigen.">
+            <time datetime="2026-01-10">10.01.2026</time>
+            <h3>Neue Kulturstätte eröffnet</h3>
+            <p>Der Meancult Gallery Projektraum öffnet...</p>
+          </article>
+
+          <article class="news-item" 
+                   data-title="Baumesse Münster 2026 angekündigt" 
+                   data-content="Die Baumesse Münster 2026 findet im März 2026 in der Halle Münsterland statt. Zahlreiche Aussteller aus der Region und dem Inland präsentieren Neuheiten rund ums Bauen, Renovieren und Wohnen. Besucher können sich über Workshops und Beratungsgespräche informieren.">
+            <time datetime="2025-12-18">18.12.2025</time>
+            <h3>Baumesse Münster 2026 angekündigt</h3>
+            <p>Die Baumesse findet im März 2026...</p>
+          </article>
+
+        </details>
+
       </div>
     </div>
   </section>
@@ -199,10 +245,19 @@
   </div>
 </footer>
 
+<!-- News Modal -->
+<div id="newsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal news-close">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalContent"></p>
+  </div>
+</div>
+
 <!-- Hinweis-Popup für Schulprojekt -->
 <div id="schoolModal" class="modal">
   <div class="modal-content">
-    <span class="close-modal">&times;</span>
+    <span class="close-modal school-close">&times;</span>
     <h2>! Wichtiger Hinweis !</h2>
     <p>
       Diese Website ist nicht die offizielle Seite der Stadt Münster.<br>
@@ -222,11 +277,11 @@
     });
   }
 
-  // News Modal
+  // News Modal Funktion
   const newsModal = document.getElementById("newsModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalContent = document.getElementById("modalContent");
-  const closeNewsModal = document.querySelector(".close-modal");
+  const closeNews = newsModal.querySelector(".news-close");
 
   document.querySelectorAll(".news-item").forEach(item => {
     item.addEventListener("click", () => {
@@ -236,7 +291,7 @@
     });
   });
 
-  closeNewsModal.addEventListener("click", () => {
+  closeNews.addEventListener("click", () => {
     newsModal.style.display = "none";
   });
 
@@ -244,12 +299,11 @@
     if (e.target === newsModal) newsModal.style.display = "none";
   });
 
-  // **Schulprojekt-Popup**
+  // Schulprojekt-Popup
   const schoolModal = document.getElementById("schoolModal");
-  const closeSchool = schoolModal.querySelector(".close-modal");
+  const closeSchool = schoolModal.querySelector(".school-close");
   const closeButton = schoolModal.querySelector(".modal-button");
 
-  // Beim Laden zeigen
   window.addEventListener("load", () => {
     schoolModal.style.display = "block";
   });
