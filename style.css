@@ -232,6 +232,15 @@ footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 15px;
+  }
 }
 
 footer h4 {
@@ -461,5 +470,59 @@ input[type="search"] {
 
   .news-item time {
     font-size: 0.85rem;
+  }
+}
+
+/* ===== Sticky Footer ===== */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Hauptinhalt nimmt den verfügbaren Platz ein */
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 40px 20px;
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+.footer-grid h4 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.footer-grid p, 
+.footer-grid a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-grid a:hover {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+/* ===== Mobile & Tablet Anpassung ===== */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+  }
+
+  footer {
+    padding: 30px 15px;
   }
 }
