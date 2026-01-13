@@ -526,3 +526,22 @@ footer {
     padding: 30px 15px;
   }
 }
+
+.logo {
+  text-decoration: none; /* entfernt die Unterstreichung */
+  color: white;          /* bleibt wie vorher */
+}
+
+.logo:hover {
+  text-decoration: none; /* auch beim Hover keine Unterstreichung */
+  cursor: pointer;       /* zeigt den Klick-Cursor an */
+}
+
+.logo img {
+  height: 50px; /* passt die Höhe an, kann nach Bedarf geändert werden */
+  display: block;
+}
+
+.logo:hover img {
+  opacity: 0.9; /* leichtes Verblassen beim Hover */
+}
