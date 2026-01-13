@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services – Bürgerbüro Münster</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Optional: kleine Anpassung für Cards auf dieser Seite */
+    .cards {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
@@ -13,11 +19,11 @@
 <header>
   <div class="container header-flex">
     <a href="index.html" class="logo">
-  <img src="img/stadtmslogo.png" alt="Stadt Münster Logo">
-</a>
+      <img src="img/stadtmslogo.png" alt="Stadt Münster Logo">
+    </a>
     <nav aria-label="Hauptnavigation">
-      <a href="index.html" aria-current="page">Start</a>
-      <a href="services.html">Services</a>
+      <a href="index.html">Start</a>
+      <a href="services.html" aria-current="page">Services</a>
       <a href="termin.html">Termin</a>
       <a href="kontakt.html">Kontakt</a>
       <a href="barrierefreiheit.html">Barrierefreiheit</a>
@@ -32,20 +38,50 @@
 
       <div class="cards">
         <div class="card">
-          <h3>Ausweise & Pässe</h3>
-          <p>Beantragung und Abholung von Personalausweisen und Reisepässen.</p>
+          <h3>Personalausweis</h3>
+          <p>Beantragung, Verlängerung & Abholung.</p>
           <a href="termin.html">Termin buchen</a>
         </div>
 
         <div class="card">
-          <h3>Meldewesen</h3>
-          <p>An-, Um- und Abmeldung Ihres Wohnsitzes in Münster.</p>
+          <h3>Reisepass</h3>
+          <p>Neuausstellung oder Verlängerung Ihres Reisepasses.</p>
           <a href="termin.html">Termin buchen</a>
         </div>
 
         <div class="card">
-          <h3>Bescheinigungen</h3>
-          <p>Melde-, Aufenthalts- und weitere amtliche Bescheinigungen.</p>
+          <h3>Ummeldung</h3>
+          <p>Wohnsitz bequem ändern.</p>
+          <a href="termin.html">Termin buchen</a>
+        </div>
+
+        <div class="card">
+          <h3>Führungszeugnis</h3>
+          <p>Online oder vor Ort beantragen.</p>
+          <a href="termin.html">Termin buchen</a>
+        </div>
+
+        <div class="card">
+          <h3>KFZ-Anmeldung</h3>
+          <p>Fahrzeuge anmelden, abmelden oder ummelden.</p>
+          <a href="termin.html">Termin buchen</a>
+        </div>
+
+        <div class="card">
+          <h3>Meldebescheinigung</h3>
+          <p>Bescheinigung über Ihren aktuellen Wohnsitz erhalten.</p>
+          <a href="termin.html">Termin buchen</a>
+        </div>
+
+        <div class="card">
+          <h3>Führerschein</h3>
+          <p>Beantragung, Verlängerung und Ersatzdokumente.</p>
+          <a href="termin.html">Termin buchen</a>
+        </div>
+
+        <div class="card">
+          <h3>Geburtsurkunden</h3>
+          <p>Ausstellung von Geburtsurkunden für Bürger*innen.</p>
           <a href="termin.html">Termin buchen</a>
         </div>
       </div>
@@ -74,6 +110,98 @@
     </div>
   </div>
 </footer>
+
+<!-- Schulprojekt-Popup -->
+<div id="schoolModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Wichtiger Hinweis</h2>
+    <p>
+      Diese Website ist <strong>nicht die offizielle Seite der Stadt Münster</strong>.<br>
+      Sie wurde ausschließlich für ein Schulprojekt am Hansa Berufskolleg in Münster erstellt.
+    </p>
+    <button class="modal-button">Schließen</button>
+  </div>
+</div>
+
+<style>
+  /* Modal Styles für Schulprojekt-Hinweis */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .modal-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #8DB600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    .modal-content {
+      margin: 20% auto;
+    }
+  }
+</style>
+
+<script>
+  // Schulprojekt-Popup
+  const schoolModal = document.getElementById("schoolModal");
+  const closeSchool = schoolModal.querySelector(".close-modal");
+  const closeButton = schoolModal.querySelector(".modal-button");
+
+  // Beim Laden anzeigen
+  window.addEventListener("load", () => {
+    schoolModal.style.display = "block";
+  });
+
+  // Schließen per "×" oder Button
+  closeSchool.addEventListener("click", () => {
+    schoolModal.style.display = "none";
+  });
+
+  closeButton.addEventListener("click", () => {
+    schoolModal.style.display = "none";
+  });
+
+  // Schließen, wenn außerhalb geklickt wird
+  window.addEventListener("click", (e) => {
+    if (e.target === schoolModal) schoolModal.style.display = "none";
+  });
+</script>
 
 </body>
 </html>
