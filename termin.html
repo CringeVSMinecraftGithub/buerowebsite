@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <title>Termin – Bürgerbüro Münster</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .confirmation {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -26,19 +37,49 @@
     <div class="container">
       <h2>Termin vereinbaren</h2>
 
-      <p>
-        Um Wartezeiten zu vermeiden, bitten wir Sie, vor Ihrem Besuch
-        einen Termin zu vereinbaren.
-      </p>
+      <form class="termin-form" id="terminForm">
 
-      <p>
-        Die Terminbuchung erfolgt bequem online oder alternativ über unsere
-        Kontaktmöglichkeiten.
-      </p>
+        <label>
+          Anliegen
+          <select required>
+            <option value="">Bitte auswählen</option>
+            <option>Personalausweis</option>
+            <option>Ummeldung</option>
+            <option>Führungszeugnis</option>
+          </select>
+        </label>
 
-      <a href="kontakt.html" class="button">
-        Zur Terminvereinbarung
-      </a>
+        <label>
+          Name
+          <input type="text" required>
+        </label>
+
+        <label>
+          E-Mail
+          <input type="email" required>
+        </label>
+
+        <label>
+          Wunschtermin
+          <input type="date" required>
+        </label>
+
+        <label>
+          Uhrzeit
+          <input type="time" required>
+        </label>
+
+        <button class="button" type="submit">
+          Termin anfragen
+        </button>
+
+      </form>
+
+      <div class="confirmation" id="confirmationMessage">
+        Ihr Termin wurde erfolgreich gebucht! Vielen Dank.
+      </div>
+
+      <p><small>Hinweis: Dies ist eine Demo-Buchung für schulische Zwecke.</small></p>
     </div>
   </section>
 </main>
@@ -51,6 +92,17 @@
     </div>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('terminForm');
+  const confirmation = document.getElementById('confirmationMessage');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // verhindert das Standard-Formular-Absenden
+    confirmation.style.display = 'block'; // zeigt die Bestätigung an
+    form.reset(); // setzt das Formular zurück
+  });
+</script>
 
 </body>
 </html>
