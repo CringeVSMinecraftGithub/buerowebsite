@@ -545,3 +545,27 @@ footer {
 .logo:hover img {
   opacity: 0.9; /* leichtes Verblassen beim Hover */
 }
+
+/* Suchfeld unter Überschrift */
+.service-search-wrapper {
+  margin: 15px 0 30px; /* Abstand nach oben und unten */
+  display: flex;
+  flex-direction: column; /* zwingt Label + Input untereinander */
+  gap: 5px; /* kleiner Abstand zwischen Label und Input */
+}
+
+.service-search-wrapper input[type="search"] {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Optional: Label etwas größer */
+.service-search-wrapper label {
+  font-weight: 600;
+  font-size: 1rem;
+}
