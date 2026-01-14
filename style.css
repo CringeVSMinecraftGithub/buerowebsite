@@ -154,13 +154,85 @@ nav a[aria-current="page"] {
 /* =====================
    Info Box
 ===================== */
-.info-box {
-  background: #ffffff;
-  padding: 25px;
-  border-left: 6px solid var(--primary);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+/* =====================
+   Allgemeine Hinweis-Box
+===================== */
+.info-box.notice {
+  background: #f4f6f8;        /* heller Hintergrund */
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
+.info-box.notice:hover {
+  background: #e8f0e5;       /* leichtes Hover-Highlight */
+  transform: translateY(-2px);
+}
+
+.info-box.notice strong {
+  font-size: 1.05rem;
+}
+
+.info-box.notice p {
+  margin-top: 4px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* =====================
+   Info Box (Status)
+===================== */
+/* =====================
+   Info Box (Status) mit SVG
+===================== */
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #ffffff;
+  padding: 20px 25px;
+  border-left: 6px solid var(--primary);
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  background: #f9f9f9;
+}
+
+.info-box .icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-box .text strong {
+  font-size: 1.1rem;
+}
+
+.info-box .text p {
+  margin: 3px 0 0 0;
+  color: #555;
+}
+
+/* Statusfarben */
+.info-box.status-open {
+  border-left-color: #4CAF50;
+}
+
+/* Optional: Animation der Icons beim Hover */
+.info-box:hover .icon svg {
+  transform: scale(1.1);
+  transition: transform 0.25s ease;
+}
 /* =====================
    Sections
 ===================== */
